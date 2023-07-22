@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  /* ## Colors */
+
+  /* ### Primary */
+
+  --Soft-orange: hsl(35, 77%, 62%);
+  --Soft-red: hsl(5, 85%, 63%);
+
+  /* ### Neutral */
+
+  --Off-white: hsl(36, 100%, 99%);
+  --Grayish-blue: hsl(233, 8%, 79%);
+  --Dark-grayish-blue: hsl(236, 13%, 42%);
+  --Very-dark-blue: hsl(240, 100%, 5%);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: var(--Off-white);
+  z-index: 999;
+}
+.container_nav {
+  display: flex;
+}
+nav {
+  margin-left: 30px;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s;
+}
+.navs {
+  display: flex;
+}
+nav:hover {
+  color: var(--Soft-orange);
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.icon_close {
+  display: none;
+}
+.container_menu {
+  display: none;
+}
+.container_logo {
+  float: right;
+}
+body {
+  padding: 2rem 10% 5rem 10%;
+  min-height: 100vh;
+  font-size: 0.9375rem;
+}
+main {
+  display: grid;
+  grid-template-areas:
+    "header header aside"
+    "section subsection aside"
+    "footer_1 footer_2 footer_3";
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto) minmax(200px, auto) minmax(100px, auto);
+}
+.container_head {
+  grid-area: header;
+  overflow: hidden;
+}
+.img_head {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container_aside {
+  grid-area: aside;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--Very-dark-blue);
+}
+.title_aside {
+  color: var(--Soft-orange);
+  font-size: 3rem;
+}
+.subtitle_aside {
+  color: var(--Off-white);
+}
+.subtitle_aside:hover {
+  color: var(--Soft-orange);
+  cursor: pointer;
+}
+.span_aside {
+  color: hsla(36, 100%, 99%, 0.752);
+  line-height: 1.875rem;
+}
+hr {
+  border-color: hsla(36, 100%, 99%, 0.326);
+  margin: 0.625rem 0;
+}
+.container_title {
+  grid-area: section;
+}
+.title {
+  font-size: 4rem;
+  line-height: 3.75rem;
+  color: var(--Very-dark-blue);
+}
+.container_paragraph {
+  grid-area: subsection;
+}
+.paragraph {
+  font-size: 1.1rem;
+  color: var(--Dark-grayish-blue);
+  line-height: 1.875rem;
+}
+.button {
+  padding: 0.9375rem 2.1875rem;
+  margin-top: 2%;
+  background-color: var(--Soft-red);
+  color: var(--Off-white);
+  text-transform: uppercase;
+  letter-spacing: 0.3125rem;
+  border: none;
+}
+.button:hover {
+  background-color: var(--Very-dark-blue);
+  cursor: pointer;
+}
+.container_pcs {
+  grid-area: footer_1;
+  display: flex;
+}
+.container_img_footer {
+  width: 30%;
+  min-width: 20%;
+  height: 100%;
+}
+.img_footer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.subcontainer_footer {
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.subtitle_footer{
+    color: var(--Very-dark-blue);
+}
+.subtitle_footer:hover{
+    color: var(--Soft-orange);
+    cursor: pointer;
+}
+.head_footer {
+  font-size: 2rem;
+  color: var(--Grayish-blue);
+}
+.container_laptops {
+  grid-area: footer_2;
+  display: flex;
+}
+.container_gaming {
+  grid-area: footer_3;
+  display: flex;
+}
+
+.menu, .close, .overlay{
+    display: none;
+}
+
+@media (max-width: 43.75rem) {
+  body {
+    padding: 0.625rem;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  nav{
+margin-bottom: 30px;
+  }
+
+  .container_main{
+    min-width: 300px;
+  }
+  .container_nav {
+    min-height: 100vh;
+    position: fixed;
+    background-color: white;
+    width: 70%;
+    right: 0;
+    top: 0;
+    padding: 1.25rem;
+    animation: slideInRight 0.7s forwards;
+    z-index: 11;
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  .navs {
+    margin-top: 6.25rem;
+    flex-direction: column;
+    background-color: var(--Off-white);
+  }
+
+  .close {
+    float: right;
+  }
+.menu, .close{
+    cursor: pointer;
+}
+  .icon_close, .container_menu, .close, .menu{
+    display: block;
+  }
+  .overlay {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+}
